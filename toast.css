@@ -1,0 +1,198 @@
+/* ======================================
+   BHEE FASHION HOME
+   CART TOAST
+====================================== */
+
+#cart-toast {
+
+    position: fixed;
+
+    top: 25px;
+
+    right: -450px;
+
+    width: 360px;
+
+    background: #fff;
+
+    border-radius: 12px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .18);
+
+    transition: .45s;
+
+    overflow: hidden;
+
+    z-index: 999999;
+
+}
+
+#cart-toast.show {
+
+    right: 20px;
+
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+.toast-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 15px;
+
+    background: #088178;
+
+    color: #fff;
+
+}
+
+.toast-header i {
+
+    font-size: 22px;
+
+}
+
+.toast-body {
+
+    display: flex;
+
+    gap: 15px;
+
+    padding: 18px;
+
+}
+
+.toast-body img {
+
+    width: 90px;
+
+    height: 90px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    border: 1px solid #eee;
+
+}
+
+.toast-details {
+
+    flex: 1;
+
+}
+
+.toast-details h4 {
+
+    margin: 0;
+
+    color: #222;
+
+    font-size: 17px;
+
+}
+
+.toast-brand {
+
+    margin-top: 6px;
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+.toast-price {
+
+    margin-top: 10px;
+
+    font-size: 20px;
+
+    color: #088178;
+
+    font-weight: bold;
+
+}
+
+.toast-footer {
+
+    display: flex;
+
+}
+
+.toast-footer button {
+
+    flex: 1;
+
+    border: none;
+
+    padding: 15px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+#continue-shopping {
+
+    background: #f5f5f5;
+
+}
+
+#continue-shopping:hover {
+
+    background: #f5cdcd;
+
+}
+
+#view-cart {
+
+    background: #088178;
+
+    color: #fff;
+
+}
+
+#view-cart:hover {
+
+    background: #8ffaf5;
+
+}
+
+
+ /* Mobile  */
+
+@media (max-width:477px) {
+
+    #cart-toast {
+
+        width: 95%;
+
+        right: -105%;
+
+    }
+
+    #cart-toast.show {
+
+        right: 2.5%;
+
+    }
+
+    .toast-body img {
+
+        width: 70px;
+
+        height: 70px;
+
+    }
+
+}
