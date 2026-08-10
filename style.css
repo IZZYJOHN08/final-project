@@ -2105,9 +2105,12 @@ html {
     }
 
     /*cart page*/
-    #page-header.cart-header {
+    
 
-        width: 100%;
+    #page-header.cart-header {
+background-image: url("images/banner/h6a.png");
+
+        
     }
 
     #cart-add {
