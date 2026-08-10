@@ -1356,7 +1356,7 @@ html {
 #page-header.help-header p {
 
     color: #f2f2f2;
-     
+
     font-size: 18px;
 
     line-height: 1.8;
@@ -1477,6 +1477,15 @@ html {
 
     box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
 
+}
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-link .card {
+    cursor: pointer;
 }
 
 .help-card i {
@@ -1650,10 +1659,11 @@ html {
     box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
 
 }
-.support-card p{
-    font-size:16px;
-    color:#444;
-    margin-bottom:10px;
+
+.support-card p {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 10px;
 
     overflow-wrap: break-word;
     word-break: break-word;
@@ -2095,6 +2105,11 @@ html {
     }
 
     /*cart page*/
+    #page-header.cart-header {
+
+        width: 100%;
+    }
+
     #cart-add {
         flex-direction: column;
     }
