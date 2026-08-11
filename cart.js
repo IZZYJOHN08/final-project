@@ -242,34 +242,113 @@ function updateCartTotals() {
     const subtotalElement =
         document.getElementById("cart-subtotal");
 
+    const discountElement =
+        document.getElementById("cart-discount");
+
+    const discountRow =
+        document.getElementById("discount-row");
+
+    const discountPercentElement =
+        document.getElementById("discount-percent");
+
+    const shippingElement =
+        document.getElementById("cart-shipping");
+
     const totalElement =
         document.getElementById("cart-total");
 
-    // Exit if we're not on cart.html
-    if (!subtotalElement || !totalElement) return;
+
+    if (!subtotalElement || !totalElement) {
+        return;
+    }
+
+
+    // =====================================
+    // CALCULATE CART SUBTOTAL
+    // =====================================
 
     let subtotal = 0;
 
     cart.forEach(product => {
 
         subtotal +=
-            product.price * product.quantity;
+            Number(product.price) *
+            Number(product.quantity);
 
     });
 
-    // Shipping (Free)
-    const shipping = 0;
 
-    const total = subtotal + shipping;
+    // =====================================
+    // SHIPPING
+    // =====================================
+
+    const shipping = 3000;
+
+
+    // =====================================
+    // CALCULATE DISCOUNT
+    // =====================================
+
+    let discount = 0;
+
+    if (discountPercent > 0) {
+
+        discount =
+            subtotal * (discountPercent / 100);
+
+    }
+
+
+    // =====================================
+    // FINAL TOTAL
+    // =====================================
+
+    const total =
+        subtotal - discount + shipping;
+
+
+    // =====================================
+    // DISPLAY VALUES
+    // =====================================
 
     subtotalElement.innerText =
         formatPrice(subtotal);
 
+
+    shippingElement.innerText =
+        formatPrice(shipping);
+
+
     totalElement.innerText =
         formatPrice(total);
 
-}
 
+    // =====================================
+    // DISPLAY DISCOUNT
+    // =====================================
+
+    if (discount > 0) {
+
+        discountRow.style.display = "table-row";
+
+        discountPercentElement.innerText =
+            ` (${discountPercent}%)`;
+
+        discountElement.innerText =
+            "-" + formatPrice(discount);
+
+    }
+
+    else {
+
+        discountRow.style.display = "none";
+
+        discountElement.innerText =
+            "-₦0";
+
+    }
+
+}
 
 
 // ----------------------------
@@ -470,6 +549,102 @@ if (singleButton) {
     });
 
 }
+// ============================================
+// BHEE FASHION HOME
+// COUPON / DISCOUNT SYSTEM
+// ============================================
+
+const couponCodes = {
+
+    "BHEE10": 10,
+    "BHEE15": 15,
+    "BHEE20": 20,
+    "FASHION25": 25
+
+};
+
+let appliedCoupon = null;
+let discountPercent = 0;
+
+
+// ============================================
+// APPLY COUPON
+// ============================================
+
+function applyCoupon() {
+
+    const input = document.getElementById("coupon-code");
+
+    const message = document.getElementById("coupon-message");
+
+    if (!input || !message) return;
+
+    const code = input.value.trim().toUpperCase();
+
+    if (code === "") {
+
+        message.innerText = "Please enter a coupon code.";
+
+        message.style.color = "red";
+
+        return;
+    }
+
+
+    // Check whether coupon exists
+
+    if (couponCodes.hasOwnProperty(code)) {
+
+        discountPercent = couponCodes[code];
+
+        appliedCoupon = code;
+
+        message.innerText =
+            `Coupon applied! You saved ${discountPercent}%.`;
+
+        message.style.color = "#088178";
+
+        updateCartTotals();
+
+    }
+
+    else {
+
+        appliedCoupon = null;
+
+        discountPercent = 0;
+
+        message.innerText =
+            "Invalid coupon code.";
+
+        message.style.color = "red";
+
+        updateCartTotals();
+
+    }
+
+}
+
+
+// ============================================
+// APPLY BUTTON
+// ============================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const applyButton =
+        document.getElementById("apply-coupon");
+
+    if (applyButton) {
+
+        applyButton.addEventListener(
+            "click",
+            applyCoupon
+        );
+
+    }
+
+});
 
 
 /* ============================================================

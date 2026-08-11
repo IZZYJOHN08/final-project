@@ -1478,6 +1478,7 @@ html {
     box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
 
 }
+
 .card-link {
     text-decoration: none;
     color: inherit;
@@ -2105,12 +2106,10 @@ html {
     }
 
     /*cart page*/
-    
+
 
     #page-header.cart-header {
-background-image: url("images/banner/h6a.png");
-
-    
+        background-image: url("images/banner/h6a.png");
     }
 
     #cart-add {

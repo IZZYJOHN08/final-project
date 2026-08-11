@@ -59,29 +59,61 @@
     <section id="cart-add" class="section-p1">
         <div id="coupon">
             <h3>Apply Coupon</h3>
+
             <div>
-                <input type="text" placeholder="Enter Your Coupon">
-                <button class="normal">Apply</button>
+                <input type="text" id="coupon-code" placeholder="Enter Your Coupon">
+
+                <button class="normal" id="apply-coupon" type="button">
+                    Apply
+                </button>
             </div>
+
+            <p id="coupon-message"></p>
         </div>
 
         <div id="subtotal">
+
             <h3>Cart Total</h3>
+
             <table>
+
                 <tr>
                     <td>Cart Subtotal</td>
                     <td id="cart-subtotal">₦0</td>
                 </tr>
+
+                <tr id="discount-row" style="display:none;">
+                    <td>
+                        Discount
+                        <span id="discount-percent"></span>
+                    </td>
+
+                    <td id="cart-discount">
+                        -₦0
+                    </td>
+                </tr>
+
                 <tr>
                     <td>Shipping</td>
-                    <td id="shipping">Free</td>
+                    <td id="cart-shipping">₦3,000</td>
                 </tr>
+
                 <tr>
-                    <td><strong>Total</strong></td>
-                    <td id="cart-total">₦0</td>
+                    <td>
+                        <strong>Total</strong>
+                    </td>
+
+                    <td>
+                        <strong id="cart-total">₦0</strong>
+                    </td>
                 </tr>
+
             </table>
-            <button class="normal">Proceed to checkout</button>
+
+            <button class="normal">
+                Proceed to checkout
+            </button>
+
         </div>
     </section>
     <footer class="section-p1">
