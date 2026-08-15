@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment - BHEE Fashion Home</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <section id="header">
+
+        <a href="index.html">
+
+            <img src="images/logo.png" class="logo" alt="BHEE Fashion Home">
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================
+         CHECKOUT PROGRESS
+    ========================== -->
+
+    <section class="checkout-progress">
+
+        <div class="progress-container">
+
+
+            <!-- CART -->
+
+            <div class="progress-step completed">
+
+                <div class="progress-circle">
+
+                    <i class="fas fa-check"></i>
+
+                </div>
+
+                <span>Cart</span>
+
+            </div>
+
+
+            <div class="progress-line completed-line"></div>
+
+
+            <!-- CHECKOUT -->
+
+            <div class="progress-step completed">
+
+                <div class="progress-circle">
+
+                    <i class="fas fa-check"></i>
+
+                </div>
+
+                <span>Checkout</span>
+
+            </div>
+
+
+            <div class="progress-line completed-line"></div>
+
+
+            <!-- PAYMENT -->
+
+            <div class="progress-step active">
+
+                <div class="progress-circle">
+                    3
+                </div>
+
+                <span>Payment</span>
+
+            </div>
+
+
+            <div class="progress-line"></div>
+
+
+            <!-- COMPLETE -->
+
+            <div class="progress-step">
+
+                <div class="progress-circle">
+                    4
+                </div>
+
+                <span>Complete</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PAYMENT HEADER
+    ========================== -->
+
+    <section id="page-header">
+
+        <h2>Payment</h2>
+
+        <p>Complete your order securely</p>
+
+    </section>
+
+
+
+    <!-- =========================
+         PAYMENT
+    ========================== -->
+
+    <section id="payment" class="section-p1">
+
+        <div class="payment-container">
+
+
+            <!-- =========================
+                 LEFT SIDE
+            ========================== -->
+
+            <div class="payment-left">
+
+
+                <!-- Payment Method -->
+
+                <div class="payment-box">
+
+                    <div class="payment-box-title">
+
+                        <span>1</span>
+
+                        <h3>Payment Method</h3>
+
+                    </div>
+
+
+                    <div class="payment-method selected">
+
+                        <div class="payment-method-icon">
+
+                            <i class="fas fa-credit-card"></i>
+
+                        </div>
+
+
+                        <div class="payment-method-info">
+
+                            <h4>Pay Online</h4>
+
+                            <p>
+                                Pay securely using your card,
+                                bank transfer or other available
+                                payment methods.
+                            </p>
+
+                        </div>
+
+
+                        <i class="fas fa-check-circle payment-check"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Delivery Information -->
+
+                <div class="payment-box">
+
+                    <div class="payment-box-title">
+
+                        <span>2</span>
+
+                        <h3>Delivery Information</h3>
+
+                    </div>
+
+
+                    <div class="customer-summary">
+
+                        <div>
+
+                            <strong>
+                                Customer
+                            </strong>
+
+                            <p id="payment-customer-name">
+                                Loading...
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Phone
+                            </strong>
+
+                            <p id="payment-customer-phone">
+                                Loading...
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Email
+                            </strong>
+
+                            <p id="payment-customer-email">
+                                Loading...
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Delivery Address
+                            </strong>
+
+                            <p id="payment-customer-address">
+                                Loading...
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <a href="checkout.html" class="edit-checkout">
+
+                        <i class="fas fa-pen"></i>
+
+                        Edit Information
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- Security -->
+
+                <div class="payment-security">
+
+                    <i class="fas fa-shield-halved"></i>
+
+                    <div>
+
+                        <strong>
+                            Secure Payment
+                        </strong>
+
+                        <p>
+                            Your payment information is protected
+                            and securely processed.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 RIGHT SIDE
+            ========================== -->
+
+            <div class="payment-right">
+
+
+                <!-- Back -->
+
+                <a href="checkout.html" class="return-checkout">
+
+                    <i class="fas fa-arrow-left"></i>
+
+                    Back to Checkout
+
+                </a>
+
+
+                <!-- Order Summary -->
+
+                <div class="payment-summary">
+
+                    <h3>
+                        Order Summary
+                    </h3>
+
+
+                    <div id="payment-items">
+
+
+                        <!-- Products will be added by JavaScript -->
+
+                    </div>
+
+
+                    <div class="payment-summary-line">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong id="payment-subtotal">
+                            ₦0
+                        </strong>
+
+                    </div>
+                    <div class="payment-summary-line" id="payment-discount-row">
+
+                        <span>
+                            Discount
+                            <small id="payment-discount-percent"></small>
+                        </span>
+
+                        <strong id="payment-discount">
+                            -₦0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="payment-summary-line">
+
+                        <span>
+                            Shipping
+                        </span>
+
+                        <strong>
+                            ₦3,000
+                        </strong>
+
+                    </div>
+
+
+                    <div class="payment-total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="payment-total">
+                            ₦0
+                        </strong>
+
+                    </div>
+
+
+                    <button type="button" class="normal pay-now-btn" id="pay-now">
+
+                        <i class="fas fa-lock"></i>
+
+                        Pay Now
+
+                    </button>
+
+
+                    <p class="payment-note">
+
+                        <i class="fas fa-shield-halved"></i>
+
+                        Secure checkout
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="images/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address: </strong>rrrttttttttttttttttttttttttttttttttttttt</p>
+            <p><strong>Phone: </strong>rrrggggggggggggggg</p>
+            <p><strong>Hours: </strong>rrrggggggggggggggggg</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <a href="https://www.facebook.com/share/1NjnU4NATt/"><i class="fab fa-facebook-f"> </i></a>
+                    <a href="https://wa.me/+2348023906651"><i class="fab fa-whatsapp"></i></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="Terms & Conditions.html">Terms & Conditions</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="cart.html">View Cart</a>
+
+            <a href="#">Track My Order</a>
+            <a href="help.html">Help</a>
+
+        </div>
+        <div class="col">
+            <p>Secured Payment Gateways</p>
+            <img src="images/pay/p1.png" alt="pay">
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Bhee Fashion. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+    <script src="https://js.paystack.co/v2/inline.js"></script>
+
+    <script src="payment.js"></script>
+
+</body>
+
+</html>

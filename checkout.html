@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout - BHEE FASHION HOME</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <section id="header">
+
+        <a href="index.html">
+            <img src="images/logo.png" class="logo" alt="BHEE Fashion Home">
+        </a>
+
+        <div>
+            <ul id="navbar">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="shop.html">Shop</a>
+                </li>
+
+                <li>
+                    <a href="blog.html">Blog</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+
+                <li id="lg-bag">
+
+                    <a class="active" href="cart.html">
+
+                        <i class="fa-solid fa-bag-shopping"></i>
+
+                    </a>
+
+                </li>
+
+                <a href="#" id="close">
+                    <i class="fa fa-times"></i>
+                </a>
+
+            </ul>
+        </div>
+
+
+        <!-- Mobile -->
+
+        <div id="mobile">
+
+            <a href="cart.html">
+
+                <i class="fa-solid fa-bag-shopping"></i>
+
+            </a>
+
+            <i id="bar" class="fas fa-outdent"></i>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CHECKOUT HEADER
+    ========================== -->
+
+    <section id="page-header" class="checkout-header">
+
+        <h2>Checkout</h2>
+
+        <p>Complete your order securely</p>
+
+    </section>
+
+    <!-- =========================
+     CHECKOUT PROGRESS
+========================== -->
+
+    <section class="checkout-progress">
+
+        <div class="progress-container">
+
+            <!-- Cart -->
+
+            <div class="progress-step completed">
+
+                <div class="progress-circle">
+                    <i class="fas fa-check"></i>
+                </div>
+
+                <span>Cart</span>
+
+            </div>
+
+
+            <div class="progress-line completed-line"></div>
+
+
+            <!-- Checkout -->
+
+            <div class="progress-step active">
+
+                <div class="progress-circle">
+                    2
+                </div>
+
+                <span>Checkout</span>
+
+            </div>
+
+
+            <div class="progress-line"></div>
+
+
+            <!-- Payment -->
+
+            <div class="progress-step">
+
+                <div class="progress-circle">
+                    3
+                </div>
+
+                <span>Payment</span>
+
+            </div>
+
+
+            <div class="progress-line"></div>
+
+
+            <!-- Complete -->
+
+            <div class="progress-step">
+
+                <div class="progress-circle">
+                    4
+                </div>
+
+                <span>Complete</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         CHECKOUT
+    ========================== -->
+
+    <section id="checkout" class="section-p1">
+
+        <div class="checkout-container">
+
+
+            <!-- =========================
+                 LEFT SIDE
+            ========================== -->
+
+            <div id="checkout-form" class="checkout-left">
+
+
+                <!-- Contact Information -->
+
+                <div class="checkout-box">
+
+                    <div class="checkout-title">
+
+                        <span>1</span>
+
+                        <h3>Contact Information</h3>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input type="email" id="email" placeholder="Enter your email address" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input type="tel" id="phone" placeholder="08012345678" required>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Delivery Information -->
+
+                <div class="checkout-box">
+
+                    <div class="checkout-title">
+
+                        <span>2</span>
+
+                        <h3>Delivery Information</h3>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="first-name">
+                                First Name
+                            </label>
+
+                            <input type="text" id="first-name" placeholder="First name" required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="last-name">
+                                Last Name
+                            </label>
+
+                            <input type="text" id="last-name" placeholder="Last name" required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="address">
+                            Delivery Address
+                        </label>
+
+                        <input type="text" id="address" placeholder="House number, street name" required>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="state">
+                                State
+                            </label>
+
+                            <select id="state" required>
+
+                                <option value="">
+                                    Select State
+                                </option>
+
+                                <option>
+                                    Akwa Ibom
+                                </option>
+
+                                <option>
+                                    Abia
+                                </option>
+
+                                <option>
+                                    Anambra
+                                </option>
+
+                                <option>
+                                    Cross River
+                                </option>
+
+                                <option>
+                                    Delta
+                                </option>
+
+                                <option>
+                                    Edo
+                                </option>
+
+                                <option>
+                                    Enugu
+                                </option>
+
+                                <option>
+                                    Imo
+                                </option>
+
+                                <option>
+                                    Lagos
+                                </option>
+
+                                <option>
+                                    Rivers
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="city">
+                                City
+                            </label>
+
+                            <input type="text" id="city" placeholder="City" required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="instructions">
+                            Additional Delivery Instructions
+                        </label>
+
+                        <textarea id="instructions" rows="4"
+                            placeholder="Optional instructions for delivery"></textarea>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Payment -->
+
+                <div class="checkout-box">
+
+                    <div class="checkout-title">
+
+                        <span>3</span>
+
+                        <h3>Payment Method</h3>
+
+                    </div>
+
+
+                    <div class="payment-option">
+
+                        <label>
+
+                            <input type="radio" name="payment" value="online" checked>
+
+                            <div>
+
+                                <strong>
+                                    Pay Online
+                                </strong>
+
+                                <p>
+                                    Secure payment with your card or other available payment methods.
+                                </p>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="payment-option">
+
+                        <label>
+
+                            <input type="radio" name="payment" value="delivery">
+
+                            <div>
+
+                                <strong>
+                                    Pay on Delivery
+                                </strong>
+
+                                <p>
+                                    Pay when your order is delivered.
+                                </p>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 RIGHT SIDE
+            ========================== -->
+
+            <div class="checkout-right">
+
+                <!-- Back to Cart -->
+
+                <a href="cart.html" class="return-cart">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Cart
+                </a>
+
+
+                <!-- Order Summary -->
+
+                <div class="order-summary">
+
+                    <h3>
+                        Your Order
+                    </h3>
+
+
+                    <div id="checkout-items"></div>
+
+
+                    <div class="summary-line">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong id="checkout-subtotal">
+                            ₦15,000
+                        </strong>
+
+                    </div>
+                    <div class="checkout-summary-line" id="checkout-discount-row">
+
+                        <span>
+                            Discount
+                            <small id="checkout-discount-percent"></small>
+                        </span>
+
+                        <strong id="checkout-discount">
+                            -₦0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-line">
+
+                        <span>
+                            Shipping
+                        </span>
+
+                        <strong>
+                            ₦3,000
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="checkout-total">
+                            ₦15,000
+                        </strong>
+
+                    </div>
+
+
+                    <button type="button" class="normal place-order-btn" id="place-order">
+                        Place Order
+                    </button>
+
+
+                    <p class="secure-checkout">
+
+                        <i class="fas fa-lock"></i>
+
+                        Your information is secure
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="section-p1">
+
+        <div class="col">
+
+            <img class="logo" src="images/logo.png" alt="BHEE Fashion Home">
+
+            <h4>Contact</h4>
+
+            <p>
+                <strong>Address:</strong>
+                Eket, Akwa Ibom, Nigeria
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                +234 XXX XXX XXXX
+            </p>
+
+            <p>
+                <strong>Hours:</strong>
+                Mon - Sat | 9:00AM - 6:00PM
+            </p>
+
+
+            <div class="follow">
+
+                <h4>Follow Us</h4>
+
+                <div class="icon">
+
+                    <a href="#">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col">
+
+            <h4>About</h4>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="#">
+                Delivery Information
+            </a>
+
+            <a href="Terms & Conditions.html">
+                Terms & Conditions
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+        </div>
+
+
+        <div class="col">
+
+            <h4>My Account</h4>
+
+            <a href="#">
+                Sign In
+            </a>
+
+            <a href="cart.html">
+                View Cart
+            </a>
+
+            <a href="#">
+                Track My Order
+            </a>
+
+            <a href="help.html">
+                Help
+            </a>
+
+        </div>
+
+
+        <div class="col">
+
+            <p>
+                Secured Payment Gateways
+            </p>
+
+            <img src="images/pay/p1.png" alt="Payment methods">
+
+        </div>
+
+
+        <div class="copyright">
+
+            <p>
+                © 2026 Bhee Fashion. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+    <script src="checkout.js"></script>
+    <script src="order-confirmation.js"></script>
+
+</body>
+
+</html>

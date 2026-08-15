@@ -563,8 +563,11 @@ const couponCodes = {
 
 };
 
-let appliedCoupon = null;
-let discountPercent = 0;
+let appliedCoupon =
+    localStorage.getItem("appliedCoupon") || null;
+
+let discountPercent =
+    Number(localStorage.getItem("discountPercent")) || 0;
 
 
 // ============================================
@@ -595,33 +598,53 @@ function applyCoupon() {
 
     if (couponCodes.hasOwnProperty(code)) {
 
-        discountPercent = couponCodes[code];
+    discountPercent = couponCodes[code];
 
-        appliedCoupon = code;
+    appliedCoupon = code;
 
-        message.innerText =
-            `Coupon applied! You saved ${discountPercent}%.`;
 
-        message.style.color = "#088178";
+    // Save coupon for checkout/payment
+    localStorage.setItem(
+        "appliedCoupon",
+        appliedCoupon
+    );
 
-        updateCartTotals();
+    localStorage.setItem(
+        "discountPercent",
+        discountPercent
+    );
 
-    }
+
+    message.innerText =
+        `Coupon applied! You saved ${discountPercent}%.`;
+
+    message.style.color = "#088178";
+
+    updateCartTotals();
+
+}
 
     else {
 
-        appliedCoupon = null;
+    appliedCoupon = null;
 
-        discountPercent = 0;
+    discountPercent = 0;
 
-        message.innerText =
-            "Invalid coupon code.";
 
-        message.style.color = "red";
+    // Remove previously saved coupon
+    localStorage.removeItem("appliedCoupon");
 
-        updateCartTotals();
+    localStorage.removeItem("discountPercent");
 
-    }
+
+    message.innerText =
+        "Invalid coupon code.";
+
+    message.style.color = "red";
+
+    updateCartTotals();
+
+}
 
 }
 
