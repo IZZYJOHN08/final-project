@@ -492,36 +492,300 @@ function handlePayNow() {
         },
 
 
-        onSuccess: (transaction) => {
+        onSuccess: async (transaction) => {
 
             console.log(
-                "Payment successful:",
+                "Paystack payment successful:",
                 transaction
             );
 
 
-            localStorage.setItem(
-                "paymentReference",
-                transaction.reference
-            );
+            const reference =
+                transaction.reference;
 
 
-            localStorage.setItem(
-                "paymentStatus",
-                "successful"
-            );
+            if (!reference) {
+
+                alert(
+                    "Payment was completed, but the transaction reference was not received."
+                );
+
+                if (payButton) {
+
+                    payButton.disabled = false;
+
+                    payButton.innerHTML =
+                        '<i class="fas fa-lock"></i> Pay Now';
+
+                }
+
+                return;
+            }
 
 
-            // Clear cart ONLY after successful payment
+            // Show verification status
 
-            localStorage.removeItem("cart");
+            if (payButton) {
+
+                payButton.innerHTML =
+                    '<i class="fas fa-spinner fa-spin"></i> Verifying Payment...';
+
+            }
 
 
-            window.location.href =
-                "order-confirmation.html";
+            try {
+
+                const response =
+                    await fetch(
+                        "verify-payment.php",
+                        {
+
+                            method: "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+                            body: JSON.stringify({
+
+                                reference: reference
+
+                            })
+
+                        }
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                console.log(
+                    "Verification result:",
+                    result
+                );
+
+
+                // ==========================================
+                // PAYMENT VERIFIED
+                // ==========================================
+
+                if (
+                    response.ok &&
+                    result.status === true
+                ) {
+
+                    localStorage.setItem(
+                        "paymentReference",
+                        reference
+                    );
+
+
+                    localStorage.setItem(
+                        "paymentStatus",
+                        "successful"
+                    );
+
+
+                    // ==========================================
+                    // GENERATE ORDER NUMBER
+                    // ==========================================
+
+                    const randomNumber =
+                        Math.floor(
+                            100000 +
+                            Math.random() * 900000
+                        );
+
+                    const orderNumber =
+                        "BHF-" + randomNumber;
+
+
+                    localStorage.setItem(
+                        "orderNumber",
+                        orderNumber
+                    );
+
+
+                    // ==========================================
+                    // SAVE ORDER TO DATABASE
+                    // ==========================================
+
+                    if (payButton) {
+
+                        payButton.innerHTML =
+                            '<i class="fas fa-spinner fa-spin"></i> Saving Order...';
+
+                    }
+
+
+                    const orderData = {
+
+                        orderNumber:
+                            orderNumber,
+
+                        paymentReference:
+                            reference,
+
+                        paymentStatus:
+                            "successful",
+
+                        customer:
+                            customer,
+
+                        items:
+                            paymentCart,
+
+                        subtotal:
+                            subtotal,
+
+                        discount:
+                            discount,
+
+                        shipping:
+                            shipping,
+
+                        total:
+                            total
+
+                    };
+
+
+                    const saveResponse =
+                        await fetch(
+                            "save-order.php",
+                            {
+
+                                method: "POST",
+
+                                headers: {
+
+                                    "Content-Type":
+                                        "application/json"
+
+                                },
+
+                                body:
+                                    JSON.stringify(orderData)
+
+                            }
+                        );
+
+
+                    const saveResult =
+                        await saveResponse.json();
+
+
+                    console.log(
+                        "Order save result:",
+                        saveResult
+                    );
+
+
+                    // ==========================================
+                    // ORDER SAVED SUCCESSFULLY
+                    // ==========================================
+
+                    if (
+                        saveResponse.ok &&
+                        saveResult.status === true
+                    ) {
+
+
+                        // Clear cart ONLY after
+                        // order has been saved successfully
+
+                        localStorage.removeItem(
+                            "cart"
+                        );
+
+
+                        window.location.href =
+                            "order-confirmation.html";
+
+
+                        return;
+
+                    }
+
+
+                    // ==========================================
+                    // ORDER SAVE FAILED
+                    // ==========================================
+
+                    console.error(
+                        "Order could not be saved:",
+                        saveResult
+                    );
+
+
+                    alert(
+                        saveResult.message ||
+                        "Payment was verified, but we could not save your order. Please contact support."
+                    );
+
+
+                    if (payButton) {
+
+                        payButton.disabled = false;
+
+                        payButton.innerHTML =
+                            '<i class="fas fa-lock"></i> Pay Now';
+
+                    }
+
+                }
+
+
+                // ==========================================
+                // PAYMENT NOT VERIFIED
+                // ==========================================
+
+                alert(
+                    result.message ||
+                    "Payment could not be verified. Please contact support."
+                );
+
+
+                if (payButton) {
+
+                    payButton.disabled = false;
+
+                    payButton.innerHTML =
+                        '<i class="fas fa-lock"></i> Pay Now';
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Payment verification error:",
+                    error
+                );
+
+
+                alert(
+                    "We couldn't verify your payment. Please check your connection and try again."
+                );
+
+
+                if (payButton) {
+
+                    payButton.disabled = false;
+
+                    payButton.innerHTML =
+                        '<i class="fas fa-lock"></i> Pay Now';
+
+                }
+
+            }
 
         },
-
 
         onCancel: () => {
 

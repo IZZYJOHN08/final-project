@@ -5,44 +5,43 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Order Confirmed - BHEE Fashion Home</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 
+
 <body>
 
-    <!-- HEADER -->
+    <!-- =========================
+         HEADER
+    ========================== -->
 
     <section id="header">
 
         <a href="index.html">
 
-            <img
-                src="images/logo.png"
-                class="logo"
-                alt="BHEE Fashion Home"
-            >
+            <img src="images/logo.png" class="logo" alt="BHEE Fashion Home">
 
         </a>
 
     </section>
 
 
-    <!-- ORDER CONFIRMATION -->
+    <!-- =========================
+         ORDER CONFIRMATION
+    ========================== -->
 
     <section class="confirmation-page">
 
         <div class="confirmation-card">
+
+            <!-- SUCCESS ICON -->
 
             <div class="confirmation-icon">
 
@@ -51,7 +50,11 @@
             </div>
 
 
-            <h1>Order Confirmed!</h1>
+            <!-- TITLE -->
+
+            <h1>
+                Order Confirmed!
+            </h1>
 
 
             <p class="confirmation-message">
@@ -63,26 +66,189 @@
 
 
             <p>
-                Your order has been received successfully.
+                Your payment was successfully verified
+                and your order has been received.
             </p>
 
 
-            <div class="order-number">
+            <!-- =========================
+                 ORDER INFORMATION
+            ========================== -->
 
-                <span>Order Number</span>
+            <div class="order-details">
 
-                <strong id="order-number">
-                    BHF-000000
-                </strong>
+                <!-- ORDER NUMBER -->
+
+                <div class="order-detail-row">
+
+                    <span>
+                        Order Number
+                    </span>
+
+                    <strong id="order-number">
+                        Generating...
+                    </strong>
+
+                </div>
+
+
+                <!-- PAYMENT REFERENCE -->
+
+                <div class="order-detail-row">
+
+                    <span>
+                        Payment Reference
+                    </span>
+
+                    <strong id="payment-reference">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <!-- PAYMENT STATUS -->
+
+                <div class="order-detail-row">
+
+                    <span>
+                        Payment Status
+                    </span>
+
+                    <strong id="payment-status" class="payment-success">
+                        Paid
+                    </strong>
+
+                </div>
 
             </div>
 
 
+            <!-- =========================
+                 CUSTOMER
+            ========================== -->
+
+            <div class="confirmation-customer">
+
+                <h3>
+                    Customer Information
+                </h3>
+
+
+                <p>
+
+                    <strong>Name:</strong>
+
+                    <span id="customer-name">
+                        Loading...
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <strong>Email:</strong>
+
+                    <span id="customer-email">
+                        Loading...
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <strong>Phone:</strong>
+
+                    <span id="customer-phone">
+                        Loading...
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <strong>Delivery Address:</strong>
+
+                    <span id="customer-address">
+                        Loading...
+                    </span>
+
+                </p>
+
+            </div>
+            <!-- =========================
+     ORDER SUMMARY
+========================== -->
+
+            <div class="confirmation-order-summary">
+
+                <h3>
+                    Order Summary
+                </h3>
+
+
+                <div id="confirmation-items"></div>
+
+
+                <div class="confirmation-totals">
+
+                    <div>
+                        <span>Subtotal</span>
+
+                        <strong id="confirmation-subtotal">
+                            ₦0
+                        </strong>
+                    </div>
+
+
+                    <div>
+                        <span>Discount</span>
+
+                        <strong id="confirmation-discount" class="discount-value">
+                            -₦0
+                        </strong>
+                    </div>
+
+
+                    <div>
+                        <span>Shipping</span>
+
+                        <strong id="confirmation-shipping">
+                            ₦0
+                        </strong>
+                    </div>
+
+
+                    <div class="confirmation-grand-total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="confirmation-total">
+                            ₦0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 ACTION BUTTONS
+            ========================== -->
+
             <div class="confirmation-actions">
 
-                <a href="shop.html" class="secondary-btn ">
+                <a href="shop.html" class="secondary-btn">
                     Continue Shopping
                 </a>
+
 
                 <a href="index.html" class="secondary-btn">
                     Back to Home
